@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- <form action="" method="post" class="form">
+    {% csrf_token %}
+<span class="input-span">
+    <label for="email" name="email">Email</label>
+    <input type="email" placeholder="email" name="email" id="email">
+</span>
+<span class="input-span">
+    <label for="password" name="password">password</label>
+    <input type="password" placeholder="password" name="password" id="password">
+</span>
+<input type="submit" value="Log in" class="submit">
+</form> -->
+<form action="" method="post" class="form">
+    {% csrf_token %}
+    <span class="input-span">
+    <label for="email" name="email">Email</label>
+    <!-- <input type="email" placeholder="email" name="email" id="email"> -->
+     {{form.username}}
+</span>
+<span class="input-span">
+    <label for="password" name="password">password</label>
+    <!-- <input type="password" placeholder="password" name="password" id="password"> -->
+     {{form.password}}
+</span>
+<div class="captcha-container">
+    {{form.captcha}}
+    <img src="{% url 'captcha' %}?{{request.session.session_key}}"  id="captcha-img" alt="no image">
+    <button type="button" onclick="refreshCaptcha()" class="refresh-btn" > ↻</button>
+</div>
+<div class="error-box">
+{% if error %}
+    {{error}}
+{% endif %}
+</div>
+{{form.googlecaptcha}}
+
+<input type="submit" value="Log in" class="submit">
+<span class="span">Don't have an account? <a href="{% url 'signup' %}">Sign up</a></span>
+</form>
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
