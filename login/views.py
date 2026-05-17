@@ -52,9 +52,12 @@ def captcha_image(request):
         )
 
     try:
-        font=ImageFont.truetype("arial.ttf",28)
+    font=ImageFont.truetype(
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        30
+    )
     except:
-        font=ImageFont.load_default()
+    font=ImageFont.load_default()
 
     x_position=10
 
