@@ -1,7 +1,6 @@
-﻿django-recaptcha==3.0.0
+Django==5.1.5
+django-recaptcha==3.0.0
+Pillow==12.2.0
 gunicorn==23.0.0
 whitenoise==6.9.0
-Django==5.1.5
-psycopg[binary]
 python-dotenv==1.2.1
-pillow
